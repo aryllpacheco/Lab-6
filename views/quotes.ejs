@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 6: Quotes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <header>
+        <%- include('partials/header.ejs') %>
+    </header>
+
+    <div class="container">
+
+        <% for (let i of rows) { %>
+            <i class="fs-5">
+                <%= i.quote %>
+            </i> <br>
+            <a href="#" class="authorNames" authorId="<%= i.authorId %> ">
+                <%= i.firstName %>
+                    <%= i.lastName %>
+            </a> <br> <br>
+            <% } %>
+    </div>
+
+    <dialog id="authorModal">
+        <div id="authorInfo">
+            <button id="closeModal">Close</button>
+            <h1 id="authorName"></h1>
+            <img id="authorPicture" width="300px">
+        </div>
+    </dialog>
+
+    <script src="/js/quotes.js"></script>
+
+    <br><br>
+
+    <footer>
+        <%- include('partials/footer.ejs') %>
+    </footer>
+
+</body>
+
+</html>
